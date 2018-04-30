@@ -19,6 +19,9 @@ class vec3:
     def __truediv__(self, scalar):
         '''divide by scalar'''
         return vec3(data=(self.x() / scalar, self.y() / scalar, self.z() / scalar))
+    def __mul__(self, scalar):
+        '''multiply by scalar'''
+        return vec3(data=(self.x() * scalar, self.y() * scalar, self.z() * scalar))
     def __getitem__(self, index):
         return self.data[index]
     def __len__(self):
