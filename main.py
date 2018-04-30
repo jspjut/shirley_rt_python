@@ -4,6 +4,8 @@ import matplotlib
 import matplotlib.image
 import numpy as np
 
+import src.vec3 as vec3
+
 
 if __name__ == '__main__':
     # (y, x, colors)
@@ -18,7 +20,8 @@ if __name__ == '__main__':
             r = x / data.shape[0]
             g = y / data.shape[1]
             b = 0.0
-            data[x][y] = [r, g, b]
+            color = vec3.vec3(data=(r, g, b))
+            data[x][y] = color.data
 
 
     matplotlib.image.imsave('out.png', data)
