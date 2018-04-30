@@ -4,7 +4,7 @@ import matplotlib
 import matplotlib.image
 import numpy as np
 
-# test
+# include local libraries
 from src.vec3 import vec3
 from src.ray import ray
 
