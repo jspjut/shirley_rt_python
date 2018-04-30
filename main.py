@@ -9,9 +9,20 @@ from src.vec3 import vec3
 from src.ray import ray
 
 
-def skybox_color(ray):
+def hit_sphere(center, radius, r):
+    '''check for sphere intersection'''
+    oc = r.origin - center
+    a = r.direction.dot(r.direction)
+    b = 2.0 * oc.dot(r.direction)
+    c = oc.dot(oc) - radius**2
+    discriminant = b**2 - 4 * a * c
+    return discriminant > 0
+
+def skybox_color(r):
     '''simple skybox function'''
-    unit_direction = ray.direction.unit_vector()
+    if hit_sphere(vec3((0.0, 0.0, -1.0)), 0.5, r):
+        return vec3((1.0, 0.0, 0.0))
+    unit_direction = r.direction.unit_vector()
     t = 0.5 * (unit_direction.y() + 1.0)
     return vec3((1.0, 1.0, 1.0))*(1.0-t) + vec3((0.5, 0.7, 1.0))*t
 
