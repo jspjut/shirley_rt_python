@@ -1,5 +1,6 @@
 # ignore temporary images
 out.png
+out2.png
 
 # Default github python .gitignore below
 # Byte-compiled / optimized / DLL files

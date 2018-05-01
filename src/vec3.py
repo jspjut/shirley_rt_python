@@ -1,6 +1,5 @@
 # simple vec3 class
 import numpy as np
-import math
 
 class vec3:
     def __init__(self, data = np.array((0.0, 0.0, 0.0))):
@@ -29,7 +28,7 @@ class vec3:
     def __str__(self):
         return 'vec3:' + str(self.data)
     def length(self):
-        return math.sqrt(self.x()**2 + self.y()**2 + self.z()**2)
+        return np.sqrt(self.x()**2 + self.y()**2 + self.z()**2)
     def squared_length(self):
         return self.x()**2 + self.y()**2 + self.z()**2
     def unit_vector(self):
