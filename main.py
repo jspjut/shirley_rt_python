@@ -26,10 +26,12 @@ def skybox_color(r):
     # if valid hit (t > 0.0)
     N = (r.point_at_parameter(t) - vec3((0.0, 0.0, -1.0))).unit_vector()
     c1 = vec3((N.x()+1, N.y()+1, N.z()+1)) * 0.5
+
     # skybox (default)
     unit_direction = r.direction.unit_vector()
     t2 = 0.5 * (unit_direction.y() + 1.0)
     c2 = vec3((1.0, 1.0, 1.0))*(1.0-t2) + vec3((0.5, 0.7, 1.0))*t2
+
     # choose return color
     return np.where(t > 0.0, c1, c2)
 
